@@ -3,7 +3,7 @@ import {
     SelectContent,
     SelectItem,
     SelectTrigger,
-    SelectValue
+    // SelectValue
 } from '@/components/ui/select'
 
 type Theme = 'light' | 'dark' | 'system'
@@ -19,7 +19,7 @@ export const ThemeSelect = ({ theme, onChange }: ThemeSelectProps) => {
             value={theme}
             onValueChange={onChange}>
             <SelectTrigger>
-                <SelectValue placeholder='Theme' />
+                {/* <SelectValue placeholder='Theme' /> */}
             </SelectTrigger>
             <SelectContent>
                 <SelectItem value='light'>Light</SelectItem>

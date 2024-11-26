@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
-import { DatePicker } from './date-picker'
-import { ThemeSelect } from './theme-select'
-import { Checkbox } from './ui/checkbox'
-import { PasswordWithReveal } from './ui/password-with-reveal'
+import { DatePicker } from '../date-picker'
+import { ThemeSelect } from '../theme-select'
+import { Checkbox } from '../ui/checkbox'
+import { PasswordWithReveal } from '../ui/password-with-reveal'
 import { Button } from '@/components/ui/button'
 import {
     Form,

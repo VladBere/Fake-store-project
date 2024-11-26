@@ -58,7 +58,7 @@ export const RemoveUserModal = ({ user }: RemoveUserModalProps) => {
                     <DialogTitle>Are you absolutely sure?</DialogTitle>
                     <DialogDescription>
                         This action cannot be undone. This will permanently delete user
-                        <span className='font-bold text-primary'> {user.name}</span> and
+                        <span className='font-bold text-primary'> {user.name.firstname}</span> and
                         remove user data from our servers.
                     </DialogDescription>
                 </DialogHeader>

@@ -11,6 +11,7 @@ import {
 } from 'lucide-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
 import {
     DropdownMenu,
@@ -73,7 +74,7 @@ export function AppSidebar() {
     const { pathname } = useLocation()
     const navigate = useNavigate()
 
-    let isAuth = !!localStorage.getItem("AccessToken")
+    let isAuth = !!localStorage.getItem('AccessToken')
 
     return (
         <Sidebar
@@ -146,36 +147,48 @@ export function AppSidebar() {
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <SidebarMenuButton>
-                                    <User2 /> Username
+                                    {isAuth ? (
+                                        <Avatar className='size-7'>
+                                            <AvatarImage
+                                                src='https://github.com/shadcn.png'
+                                                alt='@shadcn'
+                                            />
+                                            <AvatarFallback>CN</AvatarFallback>
+                                        </Avatar>
+                                    ) : (
+                                        <User2 className='size-7'/>
+                                    )}{' '}
+                                    Username
                                     <ChevronUp className='ml-auto' />
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
                                 side='top'
                                 className='w-[--radix-popper-anchor-width]'>
-                                <DropdownMenuItem className='flex items-center gap-x-2 h-10 '>
-                                    {isAuth ? (<Button
-                                        variant='ghost'
-                                        className='w-full '
-                                        onClick={() => {
-                                            localStorage.removeItem('AccessToken')
-                                            navigate(routes.home)
-                                        }}>
-                                        <LogOut className='size-4' />
-                                        Sign out
-                                    </Button>) : (
+                                <DropdownMenuItem className='flex h-10 items-center gap-x-2'>
+                                    {isAuth ? (
                                         <Button
-                                        variant='ghost'
-                                        className='w-full '
-                                        onClick={() => {
-                                            navigate(routes.login)
-                                            isAuth = true
-                                        }}>
-                                        <LogIn className='size-4' />
-                                        Log in
-                                    </Button>
+                                            variant='ghost'
+                                            className='w-full'
+                                            onClick={() => {
+                                                localStorage.removeItem('AccessToken')
+                                                navigate(routes.home)
+                                            }}>
+                                            <LogOut className='size-4' />
+                                            Sign out
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                            variant='ghost'
+                                            className='w-full'
+                                            onClick={() => {
+                                                navigate(routes.login)
+                                                isAuth = true
+                                            }}>
+                                            <LogIn className='size-4' />
+                                            Log in
+                                        </Button>
                                     )}
-                                    
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>

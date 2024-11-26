@@ -39,7 +39,7 @@ export const ProductsTable = () => {
         toast.success("Product deleted")
     }
 
-    const isAuth = !!localStorage.getItem("Accesstoken")
+    const isAuth = !!localStorage.getItem("AccessToken")
 
     if (isLoading) {
         return <div>Loading...</div>

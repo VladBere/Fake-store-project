@@ -8,26 +8,33 @@ import {
 } from '../ui/card'
 
 import type { Product } from '@/api/users/types'
-        import { trunc } from '@/config/app'
+import { trunc } from '@/config/app'
 
 interface CardProps {
     product: Product
 }
 
 export const CartProduct: React.FC<CardProps> = ({ product }) => {
-
     return (
-        <Card className='h-[260px]flex-col flex w-full justify-between overflow-hidden border border-yellow-800/30 bg-[#e7dbcf]'>
-            <div>
-                <CardHeader>
-                    <CardTitle>{product.title}</CardTitle>
-                    <CardDescription>{trunc(product.description, 130)}</CardDescription>
+        <Card className='flex h-[260px] w-full justify-between overflow-hidden border border-yellow-800/30 bg-[#e7dbcf]'>
+                <CardHeader className='flex'>
+                    <img
+                        className='size-32'
+                        src={product.image}
+                        alt={product.title}
+                    />
                 </CardHeader>
-            </div>
-            <CardContent>
-                <p className='text-green-700/70 mt-8'>{product.price} $</p>
+                <div>
+                <CardTitle>{product.title}</CardTitle>
+                <CardDescription>{trunc(product.description, 130)}</CardDescription>
+                </div>
+            <CardContent className=' flex flex-col justify-center'>
+                
             </CardContent>
-            <CardFooter className='flex justify-between'></CardFooter>
+            <CardFooter className='flex justify-between'>
+                {' '}
+                <p className=' text-green-700/70'>{product.price} $</p>
+            </CardFooter>
         </Card>
     )
 }
