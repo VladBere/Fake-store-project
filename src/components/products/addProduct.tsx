@@ -22,7 +22,7 @@ import {
     SelectItem,
     SelectLabel,
     SelectTrigger,
-    SelectValue
+    // SelectValue
 } from '../ui/select'
 
 import { useAddProductMutation } from '@/api/users/users'
@@ -154,10 +154,11 @@ export const AddProduct = () => {
                                                         field.onChange(value)
                                                     }>
                                                     <SelectTrigger className='w-[180px] border border-yellow-700/30 bg-white/60'>
-                                                        <SelectValue
+                                                        {/* <SelectValue
                                                             placeholder='Category'
                                                             value={field.value}
-                                                        />
+                                                        /> */}
+                                                        <span>{field.value}</span>
                                                     </SelectTrigger>
                                                     <SelectContent className='bg-[#f5f1ec] border border-yellow-700/30'>
                                                         <SelectGroup>
