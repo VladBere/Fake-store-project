@@ -1,6 +1,7 @@
 import {
     ChevronUp,
     Home,
+    LoaderPinwheel,
     LogIn,
     LogOut,
     Package,
@@ -66,6 +67,12 @@ const items = [
         url: routes.users,
         icon: Users,
         tooltip: 'Users Page'
+    },
+    {
+        title: 'Spin the Wheel!',
+        url: routes.wheel,
+        icon: LoaderPinwheel,
+        tooltip: 'Let`s spin!'
     }
 ]
 

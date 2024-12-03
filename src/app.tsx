@@ -10,6 +10,7 @@ import { ProductPage } from './pages/productpage'
 import { ProductsPage } from './pages/products'
 import { UsersPage } from './pages/users'
 import { RequireAuthProvider } from './provider/require-auth-provider'
+import { SpinTheWheelPage } from './pages/spin-the-wheel-page'
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: routes.product,
                 element: <ProductPage />
+            },
+            {
+                path: routes.wheel,
+                element: <SpinTheWheelPage />
             }
         ]
     },

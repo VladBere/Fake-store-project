@@ -34,7 +34,6 @@ export const Login: React.FC = () => {
     })
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
-        console.log(data)
         useAuth(data).then(
             response => {localStorage.setItem("AccessToken", response.data?.token)}
         )

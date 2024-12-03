@@ -4,5 +4,6 @@ export const routes = {
     products: '/products',
     product: '/products/:id',
     cart: '/cart',
-    login: '/login'
+    login: '/login',
+    wheel: '/spin-the-wheel',
 }

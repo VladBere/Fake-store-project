@@ -155,7 +155,7 @@ export const AddProduct = () => {
                                                     }>
                                                     <SelectTrigger className='w-[180px] border border-yellow-700/30 bg-white/60'>
                                                         <SelectValue
-                                                            // placeholder='Category'
+                                                            placeholder='Category'
                                                             value={field.value}
                                                         />
                                                     </SelectTrigger>
