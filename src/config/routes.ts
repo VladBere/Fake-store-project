@@ -6,4 +6,5 @@ export const routes = {
     cart: '/cart',
     login: '/login',
     wheel: '/spin-the-wheel',
+    about: '/about',
 }

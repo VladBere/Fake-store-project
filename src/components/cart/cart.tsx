@@ -2,9 +2,11 @@ import { CartProduct } from './cart-product'
 import type { Product } from '@/api/users/types'
 import { useGetProductsQuery } from '@/api/users/users'
 import { useStore } from '@/store/zustand'
+import { useTranslation } from 'react-i18next'
 
 export const Cart = () => {
     const { ids } = useStore()
+    const { t } = useTranslation();
 
     const { data: products, isLoading } = useGetProductsQuery({
         limit: 100
@@ -28,7 +30,7 @@ export const Cart = () => {
     return (
         <div className='h-screen'>
             <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-7'>
-                Cart Page
+                {t("Cart")}
             </h1>
             <ul className='flex flex-col gap-4'>
                 {cartedProducts && cartedProducts.length > 0 ? (
@@ -38,8 +40,8 @@ export const Cart = () => {
                         </li>
                     ))
                 ) : (
-                    <p className='h-screen scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
-                        No products in the cart
+                    <p className='text-2xl font-bold tracking-tight'>
+                        {t("Cart empty")}
                     </p>
                 )}
             </ul>

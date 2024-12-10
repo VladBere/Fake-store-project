@@ -1,4 +1,5 @@
 import {
+    AlignJustify,
     ChevronUp,
     Home,
     LoaderPinwheel,
@@ -41,45 +42,55 @@ import {
 } from '@/components/ui/tooltip'
 import { routes } from '@/config/routes'
 import { cn } from '@/lib/utils'
+import { useTranslation } from 'react-i18next'
 
 // Menu items.
-const items = [
-    {
-        title: 'Home',
-        url: routes.home,
-        icon: Home,
-        tooltip: 'Home Page'
-    },
-    {
-        title: 'Cart',
-        url: routes.cart,
-        icon: ShoppingBasket,
-        tooltip: 'Cart Page'
-    },
-    {
-        title: 'Products',
-        url: routes.products,
-        icon: Package,
-        tooltip: 'Products Page'
-    },
-    {
-        title: 'Users',
-        url: routes.users,
-        icon: Users,
-        tooltip: 'Users Page'
-    },
-    {
-        title: 'Spin the Wheel!',
-        url: routes.wheel,
-        icon: LoaderPinwheel,
-        tooltip: 'Let`s spin!'
-    }
-]
+
 
 export function AppSidebar() {
     const { state } = useSidebar()
     const { pathname } = useLocation()
     const navigate = useNavigate()
+    const { t } = useTranslation();
+
+    const items = [
+        {
+            title: t("Sidebar Home"),
+            url: routes.home,
+            icon: Home,
+            tooltip: 'Home Page'
+        },
+        {
+            title: t("Sidebar Cart"),
+            url: routes.cart,
+            icon: ShoppingBasket,
+            tooltip: 'Cart Page'
+        },
+        {
+            title: t("Sidebar Products"),
+            url: routes.products,
+            icon: Package,
+            tooltip: 'Products Page'
+        },
+        {
+            title: t("Sidebar Users"),
+            url: routes.users,
+            icon: Users,
+            tooltip: 'Users Page'
+        },
+        {
+            title: t("Sidebar Spin"),
+            url: routes.wheel,
+            icon: LoaderPinwheel,
+            tooltip: 'Let`s spin!'
+        },
+        {
+            title: t("Sidebar About"),
+            url: routes.about,
+            icon: AlignJustify,
+            tooltip: 'Let`s spin!'
+        }
+    ]
 
     let isAuth = !!localStorage.getItem('AccessToken')
 
@@ -107,7 +118,7 @@ export function AppSidebar() {
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+                    <SidebarGroupLabel>{t("Sidebar Nav")}</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) =>
@@ -182,7 +193,7 @@ export function AppSidebar() {
                                                 navigate(routes.home)
                                             }}>
                                             <LogOut className='size-4' />
-                                            Sign out
+                                            {t("Sidebar sign out")}
                                         </Button>
                                     ) : (
                                         <Button
@@ -193,7 +204,7 @@ export function AppSidebar() {
                                                 isAuth = true
                                             }}>
                                             <LogIn className='size-4' />
-                                            Log in
+                                            {t("Sidebar log in")}
                                         </Button>
                                     )}
                                 </DropdownMenuItem>

@@ -5,16 +5,20 @@ import { ProductCards } from '@/components/products/product-cards'
 import { ProductsTable } from '@/components/products/products-table'
 import { Label } from '@/components/ui/label'
 import { Tabs, TabsContent, TabsTrigger } from '@/components/ui/tabs'
+import { useTranslation } from 'react-i18next'
 
 export const ProductsPage = () => {
+
+    const { t } = useTranslation();
+
     return (
         <div>
             <h1 className='hidden scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
-                Products Page
+                {t("Products")}
             </h1>
             <div className='mt-4 flex justify-between'>
                 <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
-                    Products Page
+                {t("Products")}
                 </h1>
                 <AddProduct />
             </div>

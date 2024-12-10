@@ -19,12 +19,14 @@ import { trunc } from '@/config/app'
 import { routes } from '@/config/routes'
 import { useStore } from '@/store/zustand'
 import { toast } from 'sonner'
+import { useTranslation } from 'react-i18next'
 
 export const ProductsTable = () => {
     const { data: products, isLoading } = useGetProductsQuery({
         limit: 100
     })
 
+    const { t } = useTranslation();
     const { addId } = useStore()
 
     const [deleteProduct] = useDeleteProductMutation()
@@ -87,7 +89,7 @@ export const ProductsTable = () => {
                                             <Link
                                                 to={routes.products + '/' + product.id}
                                                 className='flex items-center justify-center gap-1'>
-                                                More <ChevronRight />
+                                                {t("More")} <ChevronRight />
                                             </Link>
                                         </Button>
                                         <Button
@@ -96,7 +98,7 @@ export const ProductsTable = () => {
                                             }
                                             variant='destructive'
                                             className='w-[100px] bg-sidebar-accent-foreground text-sidebar-primary-foreground hover:bg-sidebar-accent-foreground/70'>
-                                            Delete <Trash />
+                                            {t("Delete")} <Trash />
                                         </Button>
                                         <Button
                                         onClick={() => {
@@ -108,7 +110,7 @@ export const ProductsTable = () => {
                                         }}
                                         variant='destructive'
                                         className='w-[120px] bg-sidebar-accent-foreground text-sidebar-primary-foreground hover:bg-sidebar-accent-foreground/70'>
-                                            Add to cart <ShoppingCart className='mr-2 size-4' />
+                                            {t("Add to cart")} <ShoppingCart className='mr-2 size-4' />
                                         </Button>
                                     </PopoverContent>
                                 </Popover>
